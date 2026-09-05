@@ -23,3 +23,13 @@ def validate_columns(df: pd.DataFrame, required_columns: list[str]) -> None:
         raise ValueError(
             f"Missing required columns: {sorted(missing_columns)}"
         )
+
+
+def calculate_total_value(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Calculate the total value of each order.
+    """
+    df = df.copy()
+    df["total_value"] = df["quantity"] * df["price"]
+
+    return df
