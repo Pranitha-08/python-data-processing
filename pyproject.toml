@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "de-utils"
@@ -18,3 +18,5 @@ dev = [
     "pytest>=7.0",
     "mypy>=1.0",
 ]
+[tool.setuptools.packages.find]
+include = ["de_utils*"]
