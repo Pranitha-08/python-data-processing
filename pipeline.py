@@ -1,3 +1,7 @@
+import os
+
+from dotenv import load_dotenv
+
 from de_utils import (
     read_csv,
     validate_columns,
@@ -6,6 +10,11 @@ from de_utils import (
     PipelineSession,
 )
 
+
+load_dotenv()
+
+SOURCE_FILE = os.getenv("SOURCE_FILE", "data/sample_orders.csv")
+OUTPUT_FILE = os.getenv("OUTPUT_FILE", "data/processed_orders.csv")
 
 logger = get_logger("orders_pipeline")
 
@@ -17,7 +26,7 @@ def run_pipeline():
     try:
         # Extract
         logger.info("Reading source data")
-        df = read_csv("data/sample_orders.csv")
+        df = read_csv(SOURCE_FILE)
 
         # Validate
         logger.info("Validating columns")
@@ -39,7 +48,7 @@ def run_pipeline():
 
         # Load
         logger.info("Saving processed data")
-        df.to_csv("data/processed_orders.csv", index=False)
+        df.to_csv(OUTPUT_FILE, index=False)
 
         logger.info("Pipeline completed successfully")
         print(df)
