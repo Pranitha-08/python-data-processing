@@ -1,0 +1,6 @@
+order_id,customer_name,product,quantity,price,order_date,total_value
+1001,Shyam,Laptop,1,55000,2026-09-01,55000
+1002,Radha,Mouse,2,800,2026-09-01,1600
+1003,Arjun,Keyboard,1,1500,2026-09-02,1500
+1004,Shyam,Monitor,1,12000,2026-09-02,12000
+1005,Radha,Headphones,2,2500,2026-09-03,5000
