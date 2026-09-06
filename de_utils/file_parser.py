@@ -33,3 +33,15 @@ def calculate_total_value(df: pd.DataFrame) -> pd.DataFrame:
     df["total_value"] = df["quantity"] * df["price"]
 
     return df
+def read_parquet(file_path: str) -> pd.DataFrame:
+    """
+    Read a Parquet file and return it as a Pandas DataFrame.
+    """
+    return pd.read_parquet(file_path)
+
+
+def write_parquet(df: pd.DataFrame, file_path: str) -> None:
+    """
+    Write a DataFrame to a Parquet file.
+    """
+    df.to_parquet(file_path, index=False)
